@@ -1,0 +1,44 @@
+<div *ngIf = "page == 'usermanagement'">
+    <div class="modal-header">
+        <h4 class="modal-title" style = "text-align: center;">Дараах хэрэглэгчийг устгах уу?</h4>
+        <button type="button" class="close" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')">
+        </button>
+    </div>
+    <div class="modal-body">
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: left;">
+                <label class="labelModal">Хэрэглэгчийн нэр</label>
+                <p class = "fontHevletica pModal">{{user.fisrtname}}</p>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: left;"> 
+                <label class="labelModal" style="margin-top: 10px;">Хэрэглэгчийн овог</label>
+                <p class = "fontHevletica pModal">{{user.lastname}}</p>   
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: left;">
+                <label class="labelModal" style="margin-top: 10px;">Хэрэглэгчийн нэвтрэх нэр</label>  
+                <p class = "fontHevletica pModal">{{user.username}}</p>  
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: left;">    
+                <label class="labelModal" style="margin-top: 10px;">Хэрэглэгчийн имэйл</label>
+                <p class = "fontHevletica pModal">{{user.email}}</p>
+            </div>        
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div fxLayout="row" style = "width: 100%">
+            <div fxFlex="50%" style = "text-align: center;">    
+                <button class = "buttonModal" mat-button type="button" (click)="closeModal()">Болих</button>
+            </div>    
+            <div fxFlex="50%" style = "text-align: center;">    
+                <button class = "buttonModal" mat-button type="button" (click)="deleteUser()">Устгах</button>
+            </div>        
+        </div>
+    </div>
+</div>

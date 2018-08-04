@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+    margin: 0px;
+}
+.mat-toolbar-row, .mat-toolbar-single-row {
+    padding: 0px !important;
+}
+app {
+    min-height: 100%;
+    position: relative;
+ }
+ 
+ /* footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+ } */
+ p {
+    margin: 0;
+ }
+ .fontHevletica {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+ }
+ .buttonModal {
+    border-radius: 20px !important; 
+    -webkit-box-shadow: 0px 2px 10px 1px rgba(148,148,148,1);
+    -moz-box-shadow: 0px 2px 10px 1px rgba(148,148,148,1);
+    box-shadow: 0px 2px 10px 1px rgba(148,148,148,1);
+    color: #1e6bb8;
+ }
+ .pModal {
+    word-break: break-all; 
+    color: #1e6bb8;
+    font-size: 14px;
+ }
+ .labelModal {
+    margin-bottom: 2px; 
+    font-size: 12px; 
+    opacity: 0.8;
+ }

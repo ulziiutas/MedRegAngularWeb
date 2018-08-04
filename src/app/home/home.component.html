@@ -1,0 +1,412 @@
+<div [ngStyle]="{'background': backgroundHeader}" style = "position: fixed; top: 0; z-index: 100; width: 100%;">
+  <mat-toolbar color="primary" style = "background: none; width: 100%;">
+    <mat-toolbar-row>
+      <div class="d-flex justify-content-center">
+        <a (click)="scroll(home)" style = "background: none !important; border: none;">
+          <img style = "height: 50px; margin-left: 20px;" src="./assets/img/logo.jpg">
+        </a>        
+      </div>
+      <div class = "example-spacer "></div>
+      <div class="d-flex justify-content-end">
+        <button (click)="scroll(ourservice)" style = "font-weight: bold; font-size: 12px;" mat-button>About</button>
+        <button (click)="scroll(ourtimetable)" style = "font-weight: bold; font-size: 12px;" mat-button>TimeTable</button>
+        <button (click)="scroll(ourcontact)" style = "font-weight: bold; font-size: 12px;" mat-button>Contact</button>
+        <button style = "font-weight: bold; font-size: 12px;" routerLink="/signin" routerLinkActive="active" mat-button>Sign In</button>
+        <button style = "font-weight: bold; font-size: 12px;" routerLink="/signup" routerLinkActive="active" mat-button>Sign Up</button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div fxLayout="row" #home>
+  <div class="bg-img" mat-card-image></div>
+</div>
+<div class="d-flex justify-content-center" style = "text-align: center; top: 100px; position: absolute; z-index: 1; width: 100%;">
+  <p class = "fontHevletica" style = "color: white; font-size: 15px;">Танд хамгийн ойр</p> 
+  <h1 class = "fontHevletica" style = "color: white; font-size: 35px; margin-top: 10px; margin-bottom: 20px; font-weight: bold;">Улаанбаатар хот дахь</h1> 
+  <p class = "fontHevletica" style = "color: white; font-size: 10px; margin-bottom: 20px;">уламжлалт эмчилгээний нэгдсэн төв</p>    
+  <button class = "fontHevletica" style = "
+    font-weight: bold; 
+    border-radius: 20px; 
+    background-color: #58BCF3; 
+    padding-left: 40px; 
+    padding-right: 40px; 
+    color: white;" 
+    mat-button>Цаг Захиалах</button>
+</div>
+<div fxLayout="row" #ourservice>
+  <div class="d-flex justify-content-center" style = "margin: auto; margin-top: 30px; margin-bottom: 20px;">
+    <p class = "fontHevletica" 
+      style = "color: #918FC1; font-size: 25px;">Бидний<span style = "color: #7CCCF3; font-size: 25px;"> Үйлчилгээ</span></p> 
+  </div>
+</div>
+<div fxLayout="row">
+  <div class="d-flex justify-content-center" style = "text-align: center; margin: auto; margin-bottom: 40px;">
+    <p class = "fontHevletica" 
+      style = "margin: auto; width: 60%; color: black; font-size: 16px;">Бид бүх сэтгэл зүрхээ өвчтөнийхөө ямар асуудалтай 
+      байгаад зориулдаг ба энэ нь биднийг  зөв, оновчтой оношлогоо гаргаж өвчтөн бүрд тохирсон 
+      эмчилгээг үзүүлэхэд хүргэдэг. Бид өрнө дорнын төгс зохицсон эмчилгээг та бүхэнд хүргэж байна.</p> 
+  </div>
+</div>
+<div fxLayout="row">
+  <div class="md-img" mat-card-image></div>
+</div>
+<div class="d-flex justify-content-center" style = "text-align: center; top: 740px; position: absolute; z-index: 1; width: 100%;">
+  <p class = "fontHevletica" style = "margin: auto; width: 60%; color: white; font-size: 15px; margin-bottom: 20px;">
+    The awe of discovering the human body. The honor of being trusted to give advice. 
+    The gratitude for helping someone through a difficult illness. These things never grow old.</p> 
+  <p class = "fontHevletica"
+  style = "text-align: center; 
+  margin: auto; 
+  width: 80px; 
+  border-top: thin solid white; 
+  color: white; 
+  font-size: 10px; 
+  margin-bottom: 20px;">
+    Danielle Ofri, MD</p>      
+</div>
+<div fxLayout="row" #ourteam>
+  <div class="d-flex justify-content-center" style = "margin: auto; margin-top: 30px; margin-bottom: 20px;">
+    <p class = "fontHevletica" 
+      style = "color: #918FC1; font-size: 25px;">Бидний<span style = "color: #7CCCF3; font-size: 25px;"> Баг</span></p> 
+  </div>
+</div>
+<div fxLayout="row">  
+  <div
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0"
+    style = "width: 90%; margin: auto; height: 150px;">
+    
+    <div class="item item-1 doc1-img" fxFlex="30%" style = "height: 150px; background: rgb(241, 241, 241);">
+      <div class = "container" style = "height: 110px; background: url('assets/img/doctor1.jpg'); background-size: cover;">        
+        <div class="overlay">
+          <div class = "text">
+            <h1 style = "text-transform: uppercase; height: 10px; font-size: 14px; margin: 0px; ">С. Амарсайхан</h1>
+            <span style = "color: black; line-height: 0px; font-size: 8px; margin-top: 5px;">Уламжлалт эмчилгээний Их Эмч</span>
+          </div>
+        </div>
+      </div>
+      <img style = "width: 50px; height: 50px; position: relative; z-index: 2; margin-top: -25px; left: 35%; border-radius: 50%;" src = "assets/img/propicdoc1.jpg">
+    </div>
+    <div class="item item-1 doc1-img" fxFlex="30%" style = "height: 150px; background: rgb(241, 241, 241);">
+      <div class = "container" style = "height: 110px; background: url('assets/img/doctor2.jpg'); background-size: cover;">        
+        <div class="overlay" style = "background-color: rgba(132, 166, 205, .85);">
+          <div class = "text">
+            <h1 style = "text-transform: uppercase; height: 10px; font-size: 14px; margin: 0px;">А. Баттулга</h1>
+            <span style = "color: black; line-height: 0px; font-size: 8px; margin-top: 5px;">Уламжлалт эмчилгээний Их Эмч</span>
+          </div>
+        </div>
+      </div>
+      <img style = "width: 50px; height: 50px; position: relative; z-index: 2; margin-top: -25px; left: 35%; border-radius: 50%;" src = "assets/img/propicdoc2.jpg">
+    </div>
+    <div class="item item-1 doc1-img" fxFlex="30%" style = "height: 150px; background: rgb(241, 241, 241);">
+      <div class = "container" style = "height: 110px; background: url('assets/img/doctor3.jpg'); background-size: cover;">        
+        <div class="overlay" style = "background-color: rgba(138, 134, 193, .85);">
+          <div class = "text">
+            <h1 style = "text-transform: uppercase; height: 10px; font-size: 14px; margin: 0px;">Д. Даваадорж</h1>
+            <span style = "color: black; line-height: 0px; font-size: 8px; margin-top: 5px;">Уламжлалт эмчилгээний Их Эмч</span>
+          </div>
+        </div>
+      </div>
+      <img style = "width: 50px; height: 50px; position: relative; z-index: 2; margin-top: -25px; left: 35%; border-radius: 50%;" src = "assets/img/propicdoc3.jpg">
+    </div>
+  </div>
+</div>
+<div fxLayout="row" #ourtimetable>
+  <div class="d-flex justify-content-center" style = "margin: auto; margin-top: 30px; margin-bottom: 20px;">
+    <p class = "fontHevletica" 
+      style = "color: #918FC1; font-size: 25px;">Ажлын цаг<span style = "color: #7CCCF3; font-size: 25px;"> & Цаг авах</span></p> 
+  </div>
+</div>
+<div fxLayout="row" style = "margin-bottom: 20px;">
+  <div
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="2px"
+    fxLayoutGap.xs="0"
+    style = "width: 100%; margin: auto;">
+    <div class="item item-1" fxFlex="50%" style = "height: 320px; text-align: center;">
+      <div class="timeplan1-img" mat-card-image></div>
+      <p style = "font-size: 15px; font-weight: bold; text-transform: uppercase; color: white; z-index: 2; position: relative; top: -250px;">
+        Ажлын цаг
+      </p>
+      <p style = "font-size: 25px; font-weight: 600; color: white; z-index: 2; position: relative; top: -250px;">
+        Шинжилгээ өгөх
+      </p>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px;">
+          <div
+            fxLayout
+            fxLayout.xs="column"
+            fxLayoutAlign="start"
+            fxLayoutGap="20px"
+            fxLayoutGap.xs="0"
+            style = "width: 100%; margin: auto;">
+            <div class="item item-1" fxFlex="50%">
+              <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+                Даваа
+              </p>
+            </div>
+            <div class="item item-2" fxFlex="50%">
+              <p style = "font-size: 12px; font-weight: 300; color: white;">
+                08:00 - 12:00
+              </p>
+            </div>
+          </div>
+      </div>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px; margin-top: 10px;">
+        <div
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="start"
+          fxLayoutGap="20px"
+          fxLayoutGap.xs="0"
+          style = "width: 100%; margin: auto;">
+          <div class="item item-1" fxFlex="50%">
+            <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+              Мягмар
+            </p>
+          </div>
+          <div class="item item-2" fxFlex="50%">
+            <p style = "font-size: 12px; font-weight: 300; color: white;">
+              12:00 - 16:00
+            </p>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px; margin-top: 10px;">
+        <div
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="start"
+          fxLayoutGap="20px"
+          fxLayoutGap.xs="0"
+          style = "width: 100%; margin: auto;">
+          <div class="item item-1" fxFlex="50%">
+            <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+              Лхагва
+            </p>
+          </div>
+          <div class="item item-2" fxFlex="50%">
+            <p style = "font-size: 12px; font-weight: 300; color: white;">
+              16:00 - 18:00
+            </p>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px; margin-top: 10px;">
+        <div
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="start"
+          fxLayoutGap="20px"
+          fxLayoutGap.xs="0"
+          style = "width: 100%; margin: auto;">
+          <div class="item item-1" fxFlex="50%">
+            <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+              Пүрэв
+            </p>
+          </div>
+          <div class="item item-2" fxFlex="50%">
+            <p style = "font-size: 12px; font-weight: 300; color: white;">
+              08:00 - 12:00
+            </p>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px; margin-top: 10px;">
+        <div
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="start"
+          fxLayoutGap="20px"
+          fxLayoutGap.xs="0"
+          style = "width: 100%; margin: auto;">
+          <div class="item item-1" fxFlex="50%">
+            <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+              Баасан
+            </p>
+          </div>
+          <div class="item item-2" fxFlex="50%">
+            <p style = "font-size: 12px; font-weight: 300; color: white;">
+              12:00 - 16:00
+            </p>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px; margin-top: 10px;">
+        <div
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="start"
+          fxLayoutGap="20px"
+          fxLayoutGap.xs="0"
+          style = "width: 100%; margin: auto;">
+          <div class="item item-1" fxFlex="50%">
+            <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+              Бямба, Ням
+            </p>
+          </div>
+          <div class="item item-2" fxFlex="50%">
+            <p style = "font-size: 12px; font-weight: 300; color: white;">
+              Амарна
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item item-1" fxFlex="50%" style = "height: 320px; text-align: center;">
+      <div class="timeplan2-img" mat-card-image></div>
+      <p style = "font-size: 15px; font-weight: bold; text-transform: uppercase; color: white; z-index: 2; position: relative; top: -250px;">
+        Ажлын цаг
+      </p>
+      <p style = "font-size: 25px; font-weight: 600; color: white; z-index: 2; position: relative; top: -250px;">
+        Эмчилгээ хийлгэх
+      </p>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px;">
+          <div
+            fxLayout
+            fxLayout.xs="column"
+            fxLayoutAlign="start"
+            fxLayoutGap="20px"
+            fxLayoutGap.xs="0"
+            style = "width: 100%; margin: auto;">
+            <div class="item item-1" fxFlex="50%">
+              <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+                Даваа
+              </p>
+            </div>
+            <div class="item item-2" fxFlex="50%">
+              <p style = "font-size: 12px; font-weight: 300; color: white;">
+                08:00 - 12:00
+              </p>
+            </div>
+          </div>
+      </div>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px; margin-top: 10px;">
+        <div
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="start"
+          fxLayoutGap="20px"
+          fxLayoutGap.xs="0"
+          style = "width: 100%; margin: auto;">
+          <div class="item item-1" fxFlex="50%">
+            <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+              Мягмар
+            </p>
+          </div>
+          <div class="item item-2" fxFlex="50%">
+            <p style = "font-size: 12px; font-weight: 300; color: white;">
+              12:00 - 16:00
+            </p>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px; margin-top: 10px;">
+        <div
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="start"
+          fxLayoutGap="20px"
+          fxLayoutGap.xs="0"
+          style = "width: 100%; margin: auto;">
+          <div class="item item-1" fxFlex="50%">
+            <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+              Лхагва
+            </p>
+          </div>
+          <div class="item item-2" fxFlex="50%">
+            <p style = "font-size: 12px; font-weight: 300; color: white;">
+              16:00 - 18:00
+            </p>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px; margin-top: 10px;">
+        <div
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="start"
+          fxLayoutGap="20px"
+          fxLayoutGap.xs="0"
+          style = "width: 100%; margin: auto;">
+          <div class="item item-1" fxFlex="50%">
+            <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+              Пүрэв
+            </p>
+          </div>
+          <div class="item item-2" fxFlex="50%">
+            <p style = "font-size: 12px; font-weight: 300; color: white;">
+              08:00 - 12:00
+            </p>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px; margin-top: 10px;">
+        <div
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="start"
+          fxLayoutGap="20px"
+          fxLayoutGap.xs="0"
+          style = "width: 100%; margin: auto;">
+          <div class="item item-1" fxFlex="50%">
+            <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+              Баасан
+            </p>
+          </div>
+          <div class="item item-2" fxFlex="50%">
+            <p style = "font-size: 12px; font-weight: 300; color: white;">
+              12:00 - 16:00
+            </p>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" style = "z-index: 2; position: relative; top: -230px; margin-top: 10px;">
+        <div
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="start"
+          fxLayoutGap="20px"
+          fxLayoutGap.xs="0"
+          style = "width: 100%; margin: auto;">
+          <div class="item item-1" fxFlex="50%">
+            <p style = "margin-left: 40px; text-align: left; font-size: 12px; font-weight: 300; color: white;">
+              Бямба, Ням
+            </p>
+          </div>
+          <div class="item item-2" fxFlex="50%">
+            <p style = "font-size: 12px; font-weight: 300; color: white;">
+              Амарна
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div fxLayout="row" #ourcontact style = "margin-bottom: 20px;">
+  <div class="d-flex justify-content-center" style = "margin: auto; margin-top: 30px; margin-bottom: 20px;">
+    <p class = "fontHevletica" 
+      style = "color: #918FC1; font-size: 25px;">Хаяг болон<span style = "color: #7CCCF3; font-size: 25px;"> Холбоо барих</span></p> 
+  </div>
+</div>
+<div class="d-flex justify-content-center" style = "text-align: center;">
+  <p class = "fontHevletica" style = "margin: auto; width: 60%; color: #918FC1; font-size: 15px; margin-bottom: 20px;">
+      Traditional Medical Hospital
+      8-р хороо, Бага тойруу, Сүхбаатар дүүрэг
+      Улаанбаатар, Монгол улс 14191</p> 
+  <p class = "fontHevletica"
+  style = "text-align: center; 
+  margin: auto; 
+  width: 80px; 
+  border-top: thin solid white; 
+  color: #7CCCF3; 
+  font-size: 10px; 
+  margin-bottom: 20px;">
+    +976 99554433</p>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,24 @@
+
+.containerButton {
+    width: 100%;
+}
+  
+.customButtonHover {
+    font-weight: bold; 
+    background-color: #84a6cd; 
+    width:100%;
+    border-radius: 0;
+    border: none;
+    color: white;
+    border-bottom: thin solid white;
+    height: 40px;
+    font-size: 14px;
+}
+
+.containerButton:hover .customButtonHover {
+    background-color: white;
+    color: #84a6cd;
+}
+.container {
+    max-width: 100%;
+}

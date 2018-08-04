@@ -1,0 +1,13 @@
+a {
+    margin-right: 10px;
+}
+.last {
+    border-bottom: thin solid lightgrey;  
+}
+.filterInput {
+    margin: 0; 
+    height: -webkit-fill-available; 
+    width: -webkit-fill-available; 
+    border: none;
+    text-align: center;
+}

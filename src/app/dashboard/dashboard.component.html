@@ -1,0 +1,42 @@
+<app-header style = "height: 64px;background: rgba(132,166,205,.6); position: fixed; top: 0; z-index: 1; width: 100%;"></app-header>
+<div style = "
+max-width: 100% !important;
+ width: 100% !important; 
+ padding: 0px; 
+ margin-left: 0px; 
+ margin-right: 0px; 
+ margin-top: 64px; 
+ margin-bottom: 50px;" class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0" fxLayoutAlign="center">
+  <div fxFlex="15%" style = "background-color: #84a6cd; height: -webkit-fill-available;">    
+    <div *ngFor = "let tab of tabs; let i = index">
+      <div class = "containerButton" fxLayout="row" style = "width: 100%; height: 40px; ">
+        <button class = "customButtonHover fontHevletica" (tap) = "chosenTab(tab)" 
+        (mouseover)="hover=i" (mouseleave)="hover=-1"
+        [ngStyle]="hover === i ? buttonStyle(tab) : pressedStyle(tab)">
+          {{tab.name}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="85%">
+    <div *ngIf = "tabs[0].clicked">
+      <app-usermanagement></app-usermanagement>
+    </div>
+    <div *ngIf = "tabs[1].clicked">
+      <app-patientlist></app-patientlist>
+    </div>
+    <div *ngIf = "tabs[2].clicked">
+      <app-registerpatient></app-registerpatient>
+    </div>
+    <div *ngIf = "tabs[3].clicked">
+      <app-medicationfees></app-medicationfees>
+    </div>
+    <div *ngIf = "tabs[4].clicked">
+      <app-concludedfee></app-concludedfee>
+    </div>
+    <div *ngIf = "tabs[5].clicked">
+      <app-userprofile></app-userprofile>
+    </div>
+  </div>
+</div>
+<app-footer style = "position: fixed; bottom: 0; z-index: 1; width: 100%;"></app-footer>

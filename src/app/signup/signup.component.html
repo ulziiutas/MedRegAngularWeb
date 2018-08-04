@@ -1,0 +1,40 @@
+<app-header style = "background: rgba(132,166,205,.6); position: fixed; top: 0; z-index: 1; width: 100%;"></app-header>
+<mat-card style = "margin-top: 70px; text-align: center; box-shadow: none;">
+  <mat-form-field style = "width: 40%;">
+    <input matInput [(ngModel)]="username" placeholder="Нэвтрэх нэрээ оруулна уу!">
+  </mat-form-field>
+  <br>
+  <mat-form-field style = "width: 40%;">
+    <input matInput [(ngModel)]="email" placeholder="Имэйл хаягаа оруулна уу!">
+  </mat-form-field>
+  <br>
+  <mat-form-field style = "width: 40%;">
+    <input matInput [(ngModel)]="firstname" placeholder="Нэрээ оруулна уу!">
+  </mat-form-field>
+  <br>
+  <mat-form-field style = "width: 40%;">
+    <input matInput [(ngModel)]="lastname" placeholder="Овогоо оруулна уу!">
+  </mat-form-field>
+  <br>
+  <mat-form-field style = "width: 40%;">
+    <input matInput [(ngModel)]="password" placeholder="Нууц үгээ оруулна уу!">
+  </mat-form-field>
+  <br>
+  <mat-form-field style = "width: 40%;">
+    <input matInput [(ngModel)]="confirmpassword" placeholder="Нууц үгээ дахин оруулж баталгаажуулна уу!">
+  </mat-form-field>
+
+  <br>
+  
+  <button (click)="SignUp()" class = "fontHevletica" style = "
+  font-weight: bold; 
+  border-radius: 20px; 
+  background-color: #58BCF3; 
+  padding-left: 40px; 
+  padding-right: 40px; 
+  margin-bottom: 40px;
+  color: white;" 
+  mat-button>Sign In</button>
+  <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+</mat-card>
+<app-footer style = "position: fixed; bottom: 0; z-index: 1; width: 100%;"></app-footer>

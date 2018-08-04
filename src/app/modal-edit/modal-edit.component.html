@@ -1,0 +1,55 @@
+<div *ngIf = "page == 'usermanagement'">
+    <div class="modal-header">
+        <h4 class="modal-title" style = "text-align: center;">Дараах хэрэглэгчийн мэдээллийг өөрчлөх үү?</h4>
+        <button type="button" class="close" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')">
+        </button>
+    </div>
+    <div class="modal-body">
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">
+              <mat-form-field style = "width: 40%;">
+                <input matInput [(ngModel)]="user.firstname" placeholder="Хэрэглэгчийн нэр">
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;"> 
+              <mat-form-field style = "width: 40%;">
+                <input matInput [(ngModel)]="user.lastname" placeholder="Хэрэглэгчийн овог">
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">
+              <mat-form-field style = "width: 40%;">
+                <input matInput [(ngModel)]="user.username" placeholder="Хэрэглэгчийн нэвтрэх нэр">
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">    
+              <mat-form-field style = "width: 40%;">
+                <input matInput [(ngModel)]="user.email" placeholder="Хэрэглэгчийн имэйл">
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">    
+              <mat-form-field style = "width: 40%;">
+                <input matInput [(ngModel)]="user.password" placeholder="Хэрэглэгчийн нууц үг">
+              </mat-form-field>
+            </div>        
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div fxLayout="row" style = "width: 100%">
+            <div fxFlex="50%" style = "text-align: center;">    
+                <button class = "buttonModal" mat-button type="button" (click)="closeModal()">Болих</button>
+            </div>    
+            <div fxFlex="50%" style = "text-align: center;">    
+                <button class = "buttonModal" mat-button type="button" (click)="deleteUser()">Засах</button>
+            </div>        
+        </div>
+    </div>
+</div>
