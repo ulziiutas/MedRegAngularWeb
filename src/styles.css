@@ -40,4 +40,11 @@ app {
     margin-bottom: 2px; 
     font-size: 12px; 
     opacity: 0.8;
- }
+ } 
+.hugeModal > .modal-dialog {
+    max-width: 90% !important;
+   width: 90% !important;
+}
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 9999 !important;
+}

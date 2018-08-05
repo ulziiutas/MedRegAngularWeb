@@ -11,11 +11,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
-  selector: 'app-patientlist',
-  templateUrl: './patientlist.component.html',
-  styleUrls: ['./patientlist.component.css']
+selector: 'app-medical-history',
+templateUrl: './medical-history.component.html',
+styleUrls: ['./medical-history.component.css']
 })
-export class PatientlistComponent implements OnInit {
+export class MedicalHistoryComponent implements OnInit {
 
   patients = [
     {

@@ -2,6 +2,10 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
+import {
+  MatSelect
+} from '@angular/material';
+
 @Component({
   selector: 'app-modal-edit',
   templateUrl: './modal-edit.component.html',
@@ -9,15 +13,42 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalEditComponent {
 
-  @Input()user: any;
+  @Input()data: any;
   @Input()page: string;
   myForm: FormGroup;
-
+  categories = [
+    {
+      id: 1,
+      name: 'Өвчтөн'
+    },
+    {
+      id: 2,
+      name: 'Эмч'
+    },
+    {
+      id: 3,
+      name: 'Админ'
+    },
+    {
+      id: 4,
+      name: 'Менежэр'
+    },
+    {
+      id: 5,
+      name: 'Нягтлан'
+    },
+    {
+      id: 6,
+      name: 'Reception'
+    }
+  ];
+  selected: any;
   constructor(
    public activeModal: NgbActiveModal,
    private formBuilder: FormBuilder
   ) {
     this.createForm();
+
   }
 
   private createForm() {
@@ -30,7 +61,7 @@ export class ModalEditComponent {
   closeModal() {
     this.activeModal.close("close");
   }
-  deleteUser() {
-    this.activeModal.close(this.user);
+  editData() {
+    this.activeModal.close(this.data);
   }
 }

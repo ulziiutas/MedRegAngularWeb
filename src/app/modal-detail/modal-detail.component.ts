@@ -1,13 +1,16 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-userprofile',
-  templateUrl: './userprofile.component.html',
-  styleUrls: ['./userprofile.component.css']
+  selector: 'app-modal-detail',
+  templateUrl: './modal-detail.component.html',
+  styleUrls: ['./modal-detail.component.css']
 })
-export class UserprofileComponent {
+export class ModalDetailComponent {
 
+  @Input()patient: any;
+  @Input()page: string;
   myForm: FormGroup;
 
   cities = [
@@ -1121,32 +1124,23 @@ export class UserprofileComponent {
       ]
     }
   ]
-  user = {
-    id: 2,
-    firstname: "Ervin",
-    lastname: "Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tvsdfsd",
-    password: "Shanna@melissa.tvsdfsd",
-    addresscity: "",
-    addressdistrict: "",
-    addresshoroo: "",
-    addressdesc: "",
-    phone: "",
-    gender: "M",
-    birthday: "",
-    category: 'Өвчтөн'
-  }
-
+  
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
 
   districts = [];
   chosenCountry: string = "";
   constructor(
+   public activeModal: NgbActiveModal,
    private formBuilder: FormBuilder
   ) {
     this.createForm();
+  }
+  ngAfterViewChecked() {
+    console.log(this.patient);
+    if(this.patient.addresscity != null && this.patient.addresscity != "") {
+      this.chooseCountry(this.patient.addresscity);
+    }
   }
   private createForm() {
     this.myForm = this.formBuilder.group({
@@ -1161,7 +1155,10 @@ export class UserprofileComponent {
       }
     }
   }
+  closeModal() {
+    this.activeModal.close("close");
+  }
   savePatient() {
-    
+    this.activeModal.close(this.patient);
   }
 }

@@ -9,9 +9,21 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalAddComponent {
 
-  @Input()user: any;
   @Input()page: string;
   myForm: FormGroup;
+  data: any= {};
+  passord: string = "";
+
+  units = [
+    {
+      id: "1",
+      name: "SET"
+    },
+    {
+      id: "2",
+      name: "ширхэг"
+    }
+  ]
 
   constructor(
    public activeModal: NgbActiveModal,
@@ -30,7 +42,7 @@ export class ModalAddComponent {
   closeModal() {
     this.activeModal.close("close");
   }
-  deleteUser() {
-    this.activeModal.close(this.user);
+  addData() {
+    this.activeModal.close(this.data);
   }
 }

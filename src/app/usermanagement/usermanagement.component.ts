@@ -16,14 +16,16 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class UsermanagementComponent implements OnInit {
 
-  users = [
+  users = [    
     {
       id: 1,
       firstname: "Leanne",
       lastname: "Graham",
       username: "Bret",
       email: "Sincere@april.biz",
-      password: "Sincere@april.biz"
+      password: "Sincere@april.biz",
+      status: "A",
+      category: 'Өвчтөн'
     },
     {
       id: 2,
@@ -31,7 +33,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "Howell",
       username: "Antonette",
       email: "Shanna@melissa.tvsdfsd",
-      password: "Shanna@melissa.tvsdfsd"
+      password: "Shanna@melissa.tvsdfsd",
+      status: "A",
+      category: 'Өвчтөн'
     },    
     {
       id: 3,
@@ -39,7 +43,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Өвчтөн'
     },    
     {
       id: 4,
@@ -47,7 +53,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Өвчтөн'
     },    
     {
       id: 5,
@@ -55,7 +63,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Өвчтөн'
     },    
     {
       id: 6,
@@ -63,7 +73,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Өвчтөн'
     },    
     {
       id: 7,
@@ -71,7 +83,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 8,
@@ -79,7 +93,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 9,
@@ -87,7 +103,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 10,
@@ -95,7 +113,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 11,
@@ -103,7 +123,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 12,
@@ -111,7 +133,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 13,
@@ -119,7 +143,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 14,
@@ -127,7 +153,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 15,
@@ -135,7 +163,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },
 
     {
@@ -144,7 +174,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "Graham",
       username: "Bret",
       email: "Sincere@april.biz",
-      password: "Sincere@april.biz"
+      password: "Sincere@april.biz",
+      status: "A",
+      category: 'Админ'
     },
     {
       id: 17,
@@ -152,7 +184,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "Howell",
       username: "Antonette",
       email: "Shanna@melissa.tvsdfsd",
-      password: "Shanna@melissa.tvsdfsd"
+      password: "Shanna@melissa.tvsdfsd",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 18,
@@ -160,7 +194,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 19,
@@ -168,7 +204,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 20,
@@ -176,7 +214,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 21,
@@ -184,7 +224,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 22,
@@ -192,7 +234,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 23,
@@ -200,7 +244,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id:24,
@@ -208,7 +254,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 25,
@@ -216,7 +264,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 26,
@@ -224,7 +274,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 27,
@@ -232,7 +284,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 28,
@@ -240,7 +294,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 29,
@@ -248,7 +304,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     },    
     {
       id: 30,
@@ -256,7 +314,9 @@ export class UsermanagementComponent implements OnInit {
       lastname: "DuBuque",
       username: "Nicholas.Stanton",
       email: "Rey.Padberg@rosamond.biz",
-      password: "Rey.Padberg@rosamond.biz"
+      password: "Rey.Padberg@rosamond.biz",
+      status: "A",
+      category: 'Админ'
     }
   ];
   pageCount: number = 0;
@@ -307,7 +367,7 @@ export class UsermanagementComponent implements OnInit {
   }
   openModalDelete(user : any) {
     const modalRef = this.modalService.open(ModalDeleteComponent);
-    modalRef.componentInstance.user = user; // should be the user
+    modalRef.componentInstance.data = user; // should be the user
     modalRef.componentInstance.page = 'usermanagement'; // should be the page
 
     modalRef.result.then((result) => {
@@ -315,13 +375,14 @@ export class UsermanagementComponent implements OnInit {
 
       } else if (result != null) {
         if(result.email != "" && result.email != undefined && result.email != null) {
-          for(let i = 0; i < this.usersFilter.length; i++) {
-            for(let j = 0; j < this.usersFilter[i].users.length; j++) {
-              if(this.usersFilter[i].users[j].id == result.id) {
-                this.usersFilter[i].users.splice(j,1);
-              }
-            }
+
+          
+          for(let i = 0; i < this.users.length; i++) {            
+            if(this.users[i].id == result.id) {
+              this.users.splice(i,1);
+            }            
           }
+          this.paging(this.users);
         }
       }
     }).catch((error) => {
@@ -330,7 +391,7 @@ export class UsermanagementComponent implements OnInit {
   }
   openModalEdit(user : any) {
     const modalRef = this.modalService.open(ModalEditComponent);
-    modalRef.componentInstance.user = user; // should be the user
+    modalRef.componentInstance.data = user; // should be the user
     modalRef.componentInstance.page = 'usermanagement'; // should be the page
 
     modalRef.result.then((result) => {
@@ -346,8 +407,21 @@ export class UsermanagementComponent implements OnInit {
                 this.usersFilter[i].users[j].lastname = result.lastname;
                 this.usersFilter[i].users[j].username = result.username;
                 this.usersFilter[i].users[j].password = result.password;
+                this.usersFilter[i].users[j].category = result.category;
+                this.usersFilter[i].users[j].status = result.status;
               }
             }
+          }
+          for(let i = 0; i < this.users.length; i++) {            
+            if(this.users[i].id == result.id) {
+              this.users[i].email = result.email;
+              this.users[i].firstname = result.firstname;
+              this.users[i].lastname = result.lastname;
+              this.users[i].username = result.username;
+              this.users[i].password = result.password;
+              this.users[i].category = result.category;
+              this.users[i].status = result.status;
+            }            
           }
         }
       }
@@ -356,7 +430,7 @@ export class UsermanagementComponent implements OnInit {
     });
   }
   openModalAdd() {
-    const modalRef = this.modalService.open('ModalAddComponent');
+    const modalRef = this.modalService.open(ModalAddComponent);
     modalRef.componentInstance.page = 'usermanagement'; // should be the page
 
     modalRef.result.then((result) => {
@@ -364,9 +438,9 @@ export class UsermanagementComponent implements OnInit {
 
       } else if (result != null) {
         if(result.email != "" && result.email != undefined && result.email != null) {
-          if(this.usersFilter[this.usernameFilter.length-1].users.length == 10) {
+          if(this.usersFilter[this.usersFilter.length-1].users.length == 10) {
             let tmp = {
-              page: this.usernameFilter.length,
+              page: this.usersFilter.length,
               users: []
             }
             tmp.users.push(result)
@@ -374,8 +448,10 @@ export class UsermanagementComponent implements OnInit {
             this.pageNumbers.push(this.pageCount);
             this.usersFilter.push(tmp);
           } else {
-            this.usersFilter[this.usernameFilter.length-1].users.push(result);
+            this.usersFilter[this.usersFilter.length-1].users.push(result);
           }
+          this.users.push(result);
+          this.chosenPage = this.usersFilter.length - 1;
         }
       }
     }).catch((error) => {

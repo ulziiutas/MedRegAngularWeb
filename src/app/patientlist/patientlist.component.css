@@ -11,3 +11,9 @@ a {
     border: none;
     text-align: center;
 }
+.hoverBackground{
+    background: white;
+}
+.hoverBackground:hover{
+    background: lightgrey;
+}

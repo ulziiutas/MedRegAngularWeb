@@ -34,3 +34,9 @@ li a {
 li a:hover {
     background-color: #111111;
 }
+.hoverBackground{
+    background: white;
+}
+.hoverBackground:hover{
+    background: lightgrey;
+}

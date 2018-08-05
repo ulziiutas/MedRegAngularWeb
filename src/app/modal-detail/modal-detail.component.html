@@ -1,25 +1,31 @@
-<div fxFlex="100%" style = "padding: 10px; max-width: 100% !important; width: 100% !important;" class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0" fxLayoutAlign="center">
-  <div fxFlex="100%" style = "height: -webkit-fill-available;">     
+<div *ngIf = "page == 'patientlist'">
+  <div class="modal-header">
+      <h4 class="modal-title" style = "text-align: center;">Өвчтөний мэдээлэл</h4>
+      <button type="button" class="close" aria-label="Close"
+          (click)="activeModal.dismiss('Cross click')">
+      </button>
+  </div>
+  <div class="modal-body">
     <div fxLayout="row">
       <div fxFlex="50%" style = "text-align: center;">
         <div fxLayout="row">
             <div fxFlex="100%" style = "text-align: center;">
               <mat-form-field style = "width: 60%;">
-                <input matInput [(ngModel)]="user.regnumber" placeholder="Регистерийн дугаар">
+                <input matInput [(ngModel)]="patient.regnumber" placeholder="Регистерийн дугаар">
               </mat-form-field>
             </div>        
         </div>
         <div fxLayout="row">
             <div fxFlex="100%" style = "text-align: center;"> 
               <mat-form-field style = "width: 60%;">
-                <input matInput [(ngModel)]="user.lastname" placeholder="Хэрэглэгчийн овог">
+                <input matInput [(ngModel)]="patient.lastname" placeholder="Хэрэглэгчийн овог">
               </mat-form-field>
             </div>        
         </div>
         <div fxLayout="row">
             <div fxFlex="100%" style = "text-align: center;">
               <mat-form-field style = "width: 60%;">
-                <input matInput [(ngModel)]="user.firstname" placeholder="Нэр">
+                <input matInput [(ngModel)]="patient.firstname" placeholder="Нэр">
               </mat-form-field>
             </div>        
         </div>
@@ -27,7 +33,7 @@
             <div fxFlex="100%" style = "text-align: center;">    
               <mat-form-field style = "width: 60%;">
                 <mat-select (ngModelChange)="chooseCountry($event)" 
-                placeholder="Хүйс" [(ngModel)]="user.gender">
+                placeholder="Хүйс" [(ngModel)]="patient.gender">
                   <mat-option value="F">Эмэгтэй</mat-option>
                   <mat-option value="M">Эрэгтэй</mat-option>
                 </mat-select>
@@ -37,7 +43,7 @@
         <div fxLayout="row">
             <div fxFlex="100%" style = "text-align: center;">    
               <mat-form-field style = "width: 60%;">
-                <input matInput [matDatepicker]="picker" [(ngModel)] = "user.birthday" [formControl]="serializedDate"
+                <input matInput [matDatepicker]="picker" [(ngModel)] = "patient.birthday" [formControl]="serializedDate"
                 placeholder="Төрсөн Өдөр">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -50,7 +56,7 @@
           <div fxFlex="100%" style = "text-align: center;">    
             <mat-form-field style = "width: 60%;">
               <mat-select (ngModelChange)="chooseCountry($event)" 
-              placeholder="Оршин суугаа аймаг, хот" [(ngModel)]="user.addresscity">
+              placeholder="Оршин суугаа аймаг, хот" [(ngModel)]="patient.addresscity">
                 <mat-option *ngFor="let city of cities" [value] = "city.name">
                     {{city.name}}
                 </mat-option>
@@ -62,7 +68,7 @@
           <div fxFlex="100%" style = "text-align: center;">    
             <mat-form-field style = "width: 60%;">
               <mat-select (ngModelChange)="chooseCountry($event)" 
-              placeholder="Оршин суугаа сум, дүүрэг" [(ngModel)]="user.addressdistrict">
+              placeholder="Оршин суугаа сум, дүүрэг" [(ngModel)]="patient.addressdistrict">
                 <mat-option *ngFor="let district of districts" [value] = "district.name">
                     {{district.name}}
                 </mat-option>
@@ -73,31 +79,35 @@
         <div fxLayout="row">
           <div fxFlex="100%" style = "text-align: center;">    
             <mat-form-field style = "width: 60%;">
-              <input matInput [(ngModel)]="user.addresshoroo" placeholder="Оршин суугаа хороо">
+              <input matInput [(ngModel)]="patient.addresshoroo" placeholder="Оршин суугаа хороо">
             </mat-form-field>
           </div>        
         </div>
         <div fxLayout="row">
           <div fxFlex="100%" style = "text-align: center;">    
             <mat-form-field style = "width: 60%;">
-              <input matInput [(ngModel)]="user.addressdesc" placeholder="Оршин суугаа дэлгэрэнгүй хаяг">
+              <input matInput [(ngModel)]="patient.addressdesc" placeholder="Оршин суугаа дэлгэрэнгүй хаяг">
             </mat-form-field>
           </div>        
         </div>
         <div fxLayout="row">
           <div fxFlex="100%" style = "text-align: center;">    
             <mat-form-field style = "width: 60%;">
-              <input matInput [(ngModel)]="user.phone" placeholder="Утасны Дугаар">
+              <input matInput [(ngModel)]="patient.phone" placeholder="Утасны Дугаар">
             </mat-form-field>
           </div>        
         </div>
       </div>
-    </div>   
-    <div fxLayout="row" style = "width: 100%; margin-top: 50px;">  
-      <div fxFlex="95%" style = "text-align: right;">    
-        <button class = "buttonModal" mat-button type="button" (click)="savePatient()">Хадгалах</button>
-      </div>    
-      <div fxFlex="5%" style = "text-align: right;"></div>
-    </div>
+    </div>      
+  </div>
+  <div class="modal-footer">
+      <div fxLayout="row" style = "width: 100%">
+          <div fxFlex="50%" style = "text-align: center;">    
+              <button class = "buttonModal" mat-button type="button" (click)="closeModal()">Хаах</button>
+          </div>    
+          <div fxFlex="50%" style = "text-align: center;">    
+              <button class = "buttonModal" mat-button type="button" (click)="savePatient()">Хадгалах</button>
+          </div>        
+      </div>
   </div>
 </div>

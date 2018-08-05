@@ -1,0 +1,13 @@
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 9999 !important;
+}
+.md-select-menu-container {
+    z-index: 9999;
+}
+md-backdrop.md-select-backdrop {
+    z-index:103;
+}
+    
+.md-select-menu-container {
+    z-index:104;
+}

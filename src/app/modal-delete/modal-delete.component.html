@@ -9,25 +9,69 @@
         <div fxLayout="row">
             <div fxFlex="100%" style = "text-align: left;">
                 <label class="labelModal">Хэрэглэгчийн нэр</label>
-                <p class = "fontHevletica pModal">{{user.fisrtname}}</p>
+                <p class = "fontHevletica pModal">{{data.firstname}}</p>
             </div>        
         </div>
         <div fxLayout="row">
             <div fxFlex="100%" style = "text-align: left;"> 
                 <label class="labelModal" style="margin-top: 10px;">Хэрэглэгчийн овог</label>
-                <p class = "fontHevletica pModal">{{user.lastname}}</p>   
+                <p class = "fontHevletica pModal">{{data.lastname}}</p>   
             </div>        
         </div>
         <div fxLayout="row">
             <div fxFlex="100%" style = "text-align: left;">
                 <label class="labelModal" style="margin-top: 10px;">Хэрэглэгчийн нэвтрэх нэр</label>  
-                <p class = "fontHevletica pModal">{{user.username}}</p>  
+                <p class = "fontHevletica pModal">{{data.username}}</p>  
             </div>        
         </div>
         <div fxLayout="row">
             <div fxFlex="100%" style = "text-align: left;">    
                 <label class="labelModal" style="margin-top: 10px;">Хэрэглэгчийн имэйл</label>
-                <p class = "fontHevletica pModal">{{user.email}}</p>
+                <p class = "fontHevletica pModal">{{data.email}}</p>
+            </div>        
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div fxLayout="row" style = "width: 100%">
+            <div fxFlex="50%" style = "text-align: center;">    
+                <button class = "buttonModal" mat-button type="button" (click)="closeModal()">Болих</button>
+            </div>    
+            <div fxFlex="50%" style = "text-align: center;">    
+                <button class = "buttonModal" mat-button type="button" (click)="deleteUser()">Устгах</button>
+            </div>        
+        </div>
+    </div>
+</div>
+<div *ngIf = "page == 'medicationfees'">
+    <div class="modal-header">
+        <h4 class="modal-title" style = "text-align: center;">Дараах эмчилгээг устгах уу?</h4>
+        <button type="button" class="close" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')">
+        </button>
+    </div>
+    <div class="modal-body">
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: left;">
+                <label class="labelModal">Нэр</label>
+                <p class = "fontHevletica pModal">{{data.name}}</p>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: left;"> 
+                <label class="labelModal" style="margin-top: 10px;">Төрөл</label>
+                <p class = "fontHevletica pModal">{{data.type}}</p>   
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: left;">
+                <label class="labelModal" style="margin-top: 10px;">Нэгж</label>  
+                <p class = "fontHevletica pModal">{{data.unit}}</p>  
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: left;">    
+                <label class="labelModal" style="margin-top: 10px;">Үнэ</label>
+                <p class = "fontHevletica pModal">{{data.price}}</p>
             </div>        
         </div>
     </div>

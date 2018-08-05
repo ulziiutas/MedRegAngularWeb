@@ -7,7 +7,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalDeleteComponent {
 
-  @Input()user: any;
+  @Input()data: any;
   @Input()page: string;
 
   constructor(
@@ -19,6 +19,6 @@ export class ModalDeleteComponent {
     this.activeModal.close("close");
   }
   deleteUser() {
-    this.activeModal.close(this.user);
+    this.activeModal.close(this.data);
   }
 }

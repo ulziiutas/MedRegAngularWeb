@@ -15,7 +15,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PatientlistComponent } from './patientlist/patientlist.component';
-import { RegisterpatientComponent } from './registerpatient/registerpatient.component';
+import { MedicalHistoryComponent } from './medical-history/medical-history.component';
 import { MedicationfeesComponent } from './medicationfees/medicationfees.component';
 import { ConcludedfeeComponent } from './concludedfee/concludedfee.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
@@ -25,12 +25,13 @@ import { NgbdModal } from './modal/modal';
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
 import { ModalEditComponent } from './modal-edit/modal-edit.component';
 import { ModalAddComponent } from './modal-add/modal-add.component';
+import { ModalDetailComponent } from './modal-detail/modal-detail.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },  
   { path: 'dashboard', component: DashboardComponent },  
-  { path: 'patientlist', component: PatientlistComponent },  
-  { path: 'registerpatient', component: RegisterpatientComponent },  
+  { path: 'patientlist', component: PatientlistComponent },
+  { path: 'medicalHistory', component: MedicalHistoryComponent },   
   { path: 'medicationfees', component: MedicationfeesComponent },  
   { path: 'concludedfee', component: ConcludedfeeComponent },  
   { path: 'userprofile', component: UserprofileComponent },  
@@ -52,7 +53,7 @@ const appRoutes: Routes = [
     SigninComponent,
     DashboardComponent,
     PatientlistComponent,
-    RegisterpatientComponent,
+    MedicalHistoryComponent,
     MedicationfeesComponent,
     ConcludedfeeComponent,
     UserprofileComponent,
@@ -60,7 +61,8 @@ const appRoutes: Routes = [
     NgbdModal,
     ModalDeleteComponent,
     ModalEditComponent,
-    ModalAddComponent
+    ModalAddComponent,
+    ModalDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +80,9 @@ const appRoutes: Routes = [
   ],
   entryComponents: [
     ModalDeleteComponent,
-    ModalEditComponent
+    ModalEditComponent,
+    ModalAddComponent,
+    ModalDetailComponent
   ],
   providers: [
   ],

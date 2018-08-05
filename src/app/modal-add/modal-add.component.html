@@ -8,36 +8,43 @@
   <div class="modal-body">
       <div fxLayout="row">
           <div fxFlex="100%" style = "text-align: center;">
-            <mat-form-field style = "width: 40%;">
-              <input matInput [(ngModel)]="user.firstname" placeholder="Хэрэглэгчийн нэр">
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="data.firstname" placeholder="Хэрэглэгчийн нэр">
             </mat-form-field>
           </div>        
       </div>
       <div fxLayout="row">
           <div fxFlex="100%" style = "text-align: center;"> 
-            <mat-form-field style = "width: 40%;">
-              <input matInput [(ngModel)]="user.lastname" placeholder="Хэрэглэгчийн овог">
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="data.lastname" placeholder="Хэрэглэгчийн овог">
             </mat-form-field>
           </div>        
       </div>
       <div fxLayout="row">
           <div fxFlex="100%" style = "text-align: center;">
-            <mat-form-field style = "width: 40%;">
-              <input matInput [(ngModel)]="user.username" placeholder="Хэрэглэгчийн нэвтрэх нэр">
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="data.username" placeholder="Хэрэглэгчийн нэвтрэх нэр">
             </mat-form-field>
           </div>        
       </div>
       <div fxLayout="row">
           <div fxFlex="100%" style = "text-align: center;">    
-            <mat-form-field style = "width: 40%;">
-              <input matInput [(ngModel)]="user.email" placeholder="Хэрэглэгчийн имэйл">
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="data.email" placeholder="Хэрэглэгчийн имэйл">
             </mat-form-field>
           </div>        
       </div>
       <div fxLayout="row">
           <div fxFlex="100%" style = "text-align: center;">    
-            <mat-form-field style = "width: 40%;">
-              <input matInput [(ngModel)]="user.password" placeholder="Хэрэглэгчийн нууц үг">
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="data.password" type = "password" placeholder="Хэрэглэгчийн нууц үг">
+            </mat-form-field>
+          </div>        
+      </div>
+      <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">    
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="repassword" type = "password" placeholder="Нууц үг баталгаажуулах">
             </mat-form-field>
           </div>        
       </div>
@@ -53,3 +60,55 @@
       </div>
   </div>
 </div>
+<div *ngIf = "page == 'medicationfees'">
+    <div class="modal-header">
+        <h4 class="modal-title" style = "text-align: center;">Шинэ эмчилгээ нэмэх үү?</h4>
+        <button type="button" class="close" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')">
+        </button>
+    </div>
+    <div class="modal-body">
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">
+              <mat-form-field style = "width: 60%;">
+                <input matInput [(ngModel)]="data.name" placeholder="Нэр">
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;"> 
+              <mat-form-field style = "width: 60%;">
+                <input matInput [(ngModel)]="data.type" placeholder="Төрөл">
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">
+              <mat-form-field style = "width: 60%;">
+                <mat-select placeholder="Нэгж" [(ngModel)]="data.unit">
+                  <mat-option *ngFor="let unit of units" [value] = "unit.name">
+                    {{unit.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">    
+              <mat-form-field style = "width: 60%;">
+                <input matInput [(ngModel)]="data.price" placeholder="Үнэ">
+              </mat-form-field>
+            </div>        
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div fxLayout="row" style = "width: 100%">
+            <div fxFlex="50%" style = "text-align: center;">    
+                <button class = "buttonModal" mat-button type="button" (click)="closeModal()">Болих</button>
+            </div>    
+            <div fxFlex="50%" style = "text-align: center;">    
+                <button class = "buttonModal" mat-button type="button" (click)="addData()">Нэмэх</button>
+            </div>        
+        </div>
+    </div>
+  </div>
