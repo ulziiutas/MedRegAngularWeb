@@ -111,3 +111,245 @@
       </div>
   </div>
 </div>
+<div *ngIf = "page == 'medicalexam'">
+  <div class="modal-header">
+    <div fxLayout="row" style = "width: 100%;" >
+      <div fxFlex="50%" style = "text-align: center;">
+        <h4 class="modal-title" style = "text-align: left;">Өвчтөний Үзлэг</h4>
+      </div>  
+      <div fxFlex="50%" style = "text-align: center;">
+        <input style = "text-align: center;" 
+        [matDatepicker]="picker1" [(ngModel)] = "patient.date"
+        placeholder="Он Сар Өдөр">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>  
+      </div>        
+      <div fxFlex="50%" style = "text-align: left;">
+        <input style = "text-align: center;" [(ngModel)]="patient.time" [owlDateTimeTrigger]="dt" [owlDateTime]="dt" placeholder="Цаг">
+        <owl-date-time [pickerType]="'timer'" #dt></owl-date-time>
+      </div>        
+    </div>
+  </div>
+  <div class="modal-body">
+    <div fxLayout="row">
+      <div fxFlex="50%" style = "text-align: center;">
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">
+              <mat-form-field style = "width: 60%;">
+                <input matInput [(ngModel)]="patient.registrationNum" placeholder="Регистерийн дугаар">
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">
+              <mat-form-field style = "width: 60%;">
+                <input matInput [(ngModel)]="patient.medicalInsuranceNum" placeholder="ЭМД дугаар">
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;"> 
+              <mat-form-field style = "width: 60%;">
+                <input matInput [(ngModel)]="patient.lastname" placeholder="Хэрэглэгчийн овог">
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">
+              <mat-form-field style = "width: 60%;">
+                <input matInput [(ngModel)]="patient.firstname" placeholder="Нэр">
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">    
+              <mat-form-field style = "width: 60%;">
+                <input matInput [matDatepicker]="picker" [(ngModel)] = "patient.birthday" [formControl]="serializedDate"
+                placeholder="Төрсөн Өдөр">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">    
+              <mat-form-field style = "width: 60%;">
+                <mat-select (ngModelChange)="chooseCountry($event)" 
+                placeholder="Хүйс" [(ngModel)]="patient.gender">
+                  <mat-option value="F">Эмэгтэй</mat-option>
+                  <mat-option value="M">Эрэгтэй</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">    
+              <mat-form-field style = "width: 60%;">
+                <mat-select placeholder="Мэс засалд орсон эсэх" [(ngModel)]="patient.hadSurgery">
+                  <mat-option value="Y">Тийм</mat-option>
+                  <mat-option value="N">Үгүй</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">
+              <mat-form-field style = "width: 60%;">
+                <input matInput [(ngModel)]="patient.allergy" placeholder="Харшил">
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">    
+            <mat-form-field style = "width: 60%;">
+              <textarea matInput [(ngModel)]="patient.realExamination" placeholder="Бодит үзлэг"></textarea>
+            </mat-form-field>
+          </div>        
+        </div>
+      </div>
+      <div fxFlex="50%" style = "text-align: center;">
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">    
+            <mat-form-field style = "width: 60%;">
+              <mat-select (ngModelChange)="chooseCountry($event)" 
+              placeholder="Оршин суугаа аймаг, хот" [(ngModel)]="patient.addresscity">
+                <mat-option *ngFor="let city of cities" [value] = "city.name">
+                    {{city.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>        
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">    
+            <mat-form-field style = "width: 60%;">
+              <mat-select (ngModelChange)="chooseCountry($event)" 
+              placeholder="Оршин суугаа сум, дүүрэг" [(ngModel)]="patient.addressdistrict">
+                <mat-option *ngFor="let district of districts" [value] = "district.name">
+                    {{district.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>        
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">    
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="patient.addressdesc" placeholder="Оршин суугаа дэлгэрэнгүй хаяг">
+            </mat-form-field>
+          </div>        
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">    
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="patient.phone" placeholder="Утасны Дугаар">
+            </mat-form-field>
+          </div>        
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">    
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="patient.jobPosition" placeholder="Ажил эрхлэлт">
+            </mat-form-field>
+          </div>        
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">    
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="patient.jobMajor" placeholder="Мэргэжил">
+            </mat-form-field>
+          </div>        
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">    
+            <mat-form-field style = "width: 60%;">
+              <textarea matInput [(ngModel)]="patient.symptoms" placeholder="Зовиур"></textarea>
+            </mat-form-field>
+          </div>        
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">    
+            <mat-form-field style = "width: 60%;">
+              <textarea matInput [(ngModel)]="patient.medicalHistory" placeholder="Өвчний түүх"></textarea>
+            </mat-form-field>
+          </div>        
+        </div>     
+      </div>
+    </div>  
+    <div fxLayout="row">
+      <div fxFlex="50%" style = "text-align: center;">
+        <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">
+              <mat-form-field style = "width: 60%;">
+                <mat-select placeholder="Өвчний байдал" [(ngModel)]="patient.diseaseType">
+                  <mat-option value="I">Архаг</mat-option>
+                  <mat-option value="S">Цочмог</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>        
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="patient.concludedExamResult" placeholder="Үндсэн онош">
+            </mat-form-field>
+          </div>        
+        </div> 
+      </div>
+      <div fxFlex="50%" style = "text-align: center;">
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="patient.pulse" placeholder="Даралт, пульс">
+            </mat-form-field>
+          </div>        
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="patient.examedDoctor" placeholder="Үзлэг хийсэн эмч">
+            </mat-form-field>
+          </div>        
+        </div>  
+      </div>
+    </div>  
+    <div fxLayout="row">
+      <div fxFlex="50%" style = "text-align: center;">
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">    
+            <div style = "width: 60%; text-align: center; margin: auto; border: thin solid grey">
+              <signature-pad 
+              src="https://preview.ibb.co/jnW4Qz/Grumpy_Cat_920x584.jpg" 
+                [options]="signaturePadOptions">
+              </signature-pad>    
+            </div>
+          </div>        
+        </div>   
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: right; margin-top: 10px;"> 
+            <div style = "width: 60%; text-align: right; margin: auto;">
+              <button class = "buttonModal" mat-button type="button" (click)="drawClear()">Арилгах</button>
+            </div>   
+          </div>   
+        </div>  
+      </div>
+      <div fxFlex="50%" style = "text-align: center; height: 100% !important;">
+        <div fxFlex="100%" style = "text-align: center; height: 100% !important;">    
+          <mat-form-field style = "width: 60%; height: 100% !important;">
+            <textarea style = "height: 100% !important;" matInput [(ngModel)]="patient.therapySteps" placeholder="Эмчилгээний зарчим"></textarea>
+          </mat-form-field>
+        </div>   
+      </div>
+    </div>  
+  </div>
+  <div class="modal-footer">
+      <div fxLayout="row" style = "width: 100%">
+          <div fxFlex="50%" style = "text-align: center;">    
+              <button class = "buttonModal" mat-button type="button" (click)="closeModal()">Хаах</button>
+          </div>    
+          <div fxFlex="50%" style = "text-align: center;">    
+              <button class = "buttonModal" mat-button type="button" (click)="savePatient()">Хадгалах</button>
+          </div>        
+      </div>
+  </div>
+</div>

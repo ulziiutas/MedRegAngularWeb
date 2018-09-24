@@ -38,8 +38,19 @@ export class DashboardComponent implements OnInit {
       color : 'white'
     },
     {
-      compname : 'medicalHistory',
-      name : 'Medical History List',
+      compname : 'medicalExamList',
+      name : 'Medical Examination List',
+      status : 'active',
+      clicked : false,
+      authtype : 'USER',
+      background : '#84a6cd',
+      border : 'none',
+      bottomborder : 'thin solid white',
+      color : 'white'
+    },
+    {
+      compname : 'medicalTherapyList',
+      name : 'Medical Therapy List',
       status : 'active',
       clicked : false,
       authtype : 'USER',

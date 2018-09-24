@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule }          from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SignaturePadModule } from 'angular2-signaturepad';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -15,7 +18,8 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PatientlistComponent } from './patientlist/patientlist.component';
-import { MedicalHistoryComponent } from './medical-history/medical-history.component';
+import { MedicalExamComponent } from './medical-exam/medical-exam.component';
+import { MedicalTherapyComponent } from './medical-therapy/medical-therapy.component';
 import { MedicationfeesComponent } from './medicationfees/medicationfees.component';
 import { ConcludedfeeComponent } from './concludedfee/concludedfee.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
@@ -31,7 +35,8 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },  
   { path: 'dashboard', component: DashboardComponent },  
   { path: 'patientlist', component: PatientlistComponent },
-  { path: 'medicalHistory', component: MedicalHistoryComponent },   
+  { path: 'medicalExam', component: MedicalExamComponent },  
+  { path: 'medicalTherapy', component: MedicalTherapyComponent },   
   { path: 'medicationfees', component: MedicationfeesComponent },  
   { path: 'concludedfee', component: ConcludedfeeComponent },  
   { path: 'userprofile', component: UserprofileComponent },  
@@ -53,7 +58,8 @@ const appRoutes: Routes = [
     SigninComponent,
     DashboardComponent,
     PatientlistComponent,
-    MedicalHistoryComponent,
+    MedicalExamComponent,
+    MedicalTherapyComponent,
     MedicationfeesComponent,
     ConcludedfeeComponent,
     UserprofileComponent,
@@ -71,6 +77,10 @@ const appRoutes: Routes = [
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    SignaturePadModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    HttpClientModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,

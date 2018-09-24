@@ -1,6 +1,9 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { SignaturePad } from 'angular2-signaturepad/signature-pad';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @Component({
   selector: 'app-modal-detail',
@@ -10,7 +13,18 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class ModalDetailComponent {
 
   @Input()patient: any;
-  @Input()page: string;
+  @Input()page: string;  
+  @ViewChild(SignaturePad) signaturePad: SignaturePad;
+ 
+  private signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
+    'minWidth': 1,
+    'canvasWidth': 300,
+    'canvasHeight': 300,
+    'penColor' : "rgb(255, 0, 0)"
+  };
+  humanAnatomyBase64 = ""
+  selectedMoment= new Date(2018, 1, 12, 20, 30);
+  
   myForm: FormGroup;
 
   cities = [
@@ -1130,19 +1144,31 @@ export class ModalDetailComponent {
 
   districts = [];
   chosenCountry: string = "";
+
   constructor(
    public activeModal: NgbActiveModal,
-   private formBuilder: FormBuilder
+   public formBuilder: FormBuilder,
+   public http: HttpClient
   ) {
     this.createForm();
+    console.log(this.selectedMoment);
   }
   ngAfterViewChecked() {
-    console.log(this.patient);
-    if(this.patient.addresscity != null && this.patient.addresscity != "") {
-      this.chooseCountry(this.patient.addresscity);
+    if(this.page == 'patientlist') {
+      if(this.patient.addresscity != null && this.patient.addresscity != "") {
+        this.chooseCountry(this.patient.addresscity);
+      }
     }
   }
-  private createForm() {
+  ngAfterViewInit() {
+    this.signaturePad.set('minWidth', 1); // set szimek/signature_pad options at runtime
+    this.signaturePad.clear(); // invoke functions from szimek/signature_pad API
+    if(this.patient.therapyShownOnPicture == "") {
+      let base64 = this.getImage();
+      this.signaturePad.fromDataURL(base64);
+    }
+  } 
+  createForm() {
     this.myForm = this.formBuilder.group({
       username: '',
       password: ''
@@ -1156,9 +1182,19 @@ export class ModalDetailComponent {
     }
   }
   closeModal() {
+    this.patient.therapyShownOnPicture = this.signaturePad.toDataURL();
     this.activeModal.close("close");
   }
   savePatient() {
     this.activeModal.close(this.patient);
+  }
+  drawClear() {
+    this.signaturePad.clear();
+  }
+  getImage(): any {
+    return this.http.get('assets/img/humanAnatomy.png', {responseType: 'text'})
+    .subscribe(data => {
+      console.log(data)
+     });
   }
 }

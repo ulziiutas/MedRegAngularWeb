@@ -26,15 +26,18 @@ max-width: 100% !important;
       <app-patientlist></app-patientlist>
     </div>
     <div *ngIf = "tabs[2].clicked">
-      <app-medical-history></app-medical-history>
+      <app-medical-exam></app-medical-exam>
     </div>
     <div *ngIf = "tabs[3].clicked">
-      <app-medicationfees></app-medicationfees>
+      <app-medical-therapy></app-medical-therapy>
     </div>
     <div *ngIf = "tabs[4].clicked">
-      <app-concludedfee></app-concludedfee>
+      <app-medicationfees></app-medicationfees>
     </div>
     <div *ngIf = "tabs[5].clicked">
+      <app-concludedfee></app-concludedfee>
+    </div>
+    <div *ngIf = "tabs[6].clicked">
       <app-userprofile></app-userprofile>
     </div>
   </div>

@@ -1,3 +1,6 @@
 .modal-dialog {
     max-width: 90%;
 }
+.sig-container-image canvas {
+    background-image: "assets/img/humanAnatomy.png";
+}
