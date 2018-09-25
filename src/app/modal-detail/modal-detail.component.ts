@@ -16,10 +16,10 @@ export class ModalDetailComponent {
   @Input()page: string;  
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
  
-  private signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
+  private signaturePadOptions: Object = {
     'minWidth': 1,
-    'canvasWidth': 300,
-    'canvasHeight': 300,
+    'canvasWidth': 375,
+    'canvasHeight': 375,
     'penColor' : "rgb(255, 0, 0)"
   };
   humanAnatomyBase64 = ""
@@ -1161,11 +1161,20 @@ export class ModalDetailComponent {
     }
   }
   ngAfterViewInit() {
-    this.signaturePad.set('minWidth', 1); // set szimek/signature_pad options at runtime
-    this.signaturePad.clear(); // invoke functions from szimek/signature_pad API
+    this.signaturePad.clear();
     if(this.patient.therapyShownOnPicture == "") {
-      let base64 = this.getImage();
-      this.signaturePad.fromDataURL(base64);
+      return this.http.get('assets/img/humanAnatomy.jpeg', {responseType: "blob"})
+      .subscribe(data => {
+        let base64data;        
+        var reader = new FileReader();
+        reader.readAsDataURL(data); 
+        reader.onloadend = (e) => {
+          base64data = reader.result;
+          this.signaturePad.fromDataURL(base64data, {width: 375, height: 375});
+        }
+       });
+    } else {
+      this.signaturePad.fromDataURL(this.patient.therapyShownOnPicture, {width: 375, height: 375});
     }
   } 
   createForm() {
@@ -1182,19 +1191,41 @@ export class ModalDetailComponent {
     }
   }
   closeModal() {
-    this.patient.therapyShownOnPicture = this.signaturePad.toDataURL();
     this.activeModal.close("close");
   }
   savePatient() {
+    this.patient.therapyShownOnPicture = this.signaturePad.toDataURL();
     this.activeModal.close(this.patient);
   }
   drawClear() {
     this.signaturePad.clear();
+    if(this.patient.therapyShownOnPicture == "") {
+      return this.http.get('assets/img/humanAnatomy.jpeg', {responseType: "blob"})
+      .subscribe(data => {
+        let base64data;        
+        var reader = new FileReader();
+        reader.readAsDataURL(data); 
+        reader.onloadend = (e) => {
+          base64data = reader.result;
+          this.signaturePad.fromDataURL(base64data, {width: 375, height: 375});
+        }
+       });
+    } else {
+      this.signaturePad.fromDataURL(this.patient.therapyShownOnPicture, {width: 375, height: 375});
+    }
   }
-  getImage(): any {
-    return this.http.get('assets/img/humanAnatomy.png', {responseType: 'text'})
+  drawErase(){
+    this.signaturePad.clear();
+    this.patient.therapyShownOnPicture = "";
+    return this.http.get('assets/img/humanAnatomy.jpeg', {responseType: "blob"})
     .subscribe(data => {
-      console.log(data)
+      let base64data;        
+      var reader = new FileReader();
+      reader.readAsDataURL(data); 
+      reader.onloadend = (e) => {
+        base64data = reader.result;
+        this.signaturePad.fromDataURL(base64data, {width: 375, height: 375});
+      }
      });
   }
 }

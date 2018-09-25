@@ -315,19 +315,23 @@
     </div>  
     <div fxLayout="row">
       <div fxFlex="50%" style = "text-align: center;">
-        <div fxLayout="row">
+        <div fxLayout="row" style = "border-top: .84375em solid transparent;">
           <div fxFlex="100%" style = "text-align: center;">    
             <div style = "width: 60%; text-align: center; margin: auto; border: thin solid grey">
               <signature-pad 
-              src="https://preview.ibb.co/jnW4Qz/Grumpy_Cat_920x584.jpg" 
                 [options]="signaturePadOptions">
-              </signature-pad>    
+              </signature-pad>
             </div>
           </div>        
         </div>   
         <div fxLayout="row">
-          <div fxFlex="100%" style = "text-align: right; margin-top: 10px;"> 
+          <div fxFlex="50%" style = "text-align: right; margin-top: 10px;"> 
             <div style = "width: 60%; text-align: right; margin: auto;">
+              <button class = "buttonModal" mat-button type="button" (click)="drawErase()">Шинэчлэх</button>
+            </div>   
+          </div>   
+          <div fxFlex="50%" style = "text-align: left; margin-top: 10px;"> 
+            <div style = "width: 60%; text-align: left; margin: auto;">
               <button class = "buttonModal" mat-button type="button" (click)="drawClear()">Арилгах</button>
             </div>   
           </div>   
@@ -335,20 +339,90 @@
       </div>
       <div fxFlex="50%" style = "text-align: center; height: 100% !important;">
         <div fxFlex="100%" style = "text-align: center; height: 100% !important;">    
-          <mat-form-field style = "width: 60%; height: 100% !important;">
-            <textarea style = "height: 100% !important;" matInput [(ngModel)]="patient.therapySteps" placeholder="Эмчилгээний зарчим"></textarea>
-          </mat-form-field>
+          <div class = "nopadding">
+            <mat-form-field style = "width: 60%; height: 100% !important; padding-top: 0px !important; margin-top: 0px !important;">
+              <textarea style = "height: 382px !important;" matInput [(ngModel)]="patient.therapySteps" placeholder="Эмчилгээний зарчим"></textarea>
+            </mat-form-field>
+          </div>
         </div>   
+      </div>
+    </div> 
+    <div fxLayout="row" style = "margin-top: 10px;">
+      <div fxFlex="50%" style = "text-align: center;">
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="patient.therapyType" placeholder="Эмчилгээний төрөл">
+            </mat-form-field>
+          </div>        
+        </div>
+        <div *ngFor = "let item of patient.therapyMedicines">
+          <div fxLayout="row">
+            <div fxFlex="100%" style = "text-align: center;">
+              <mat-form-field style = "width: 60%;">
+                <input matInput [(ngModel)]="item.quantity" placeholder="{{item.name}}">
+              </mat-form-field>
+            </div>        
+          </div>
+        </div>
+      </div>
+      <div fxFlex="50%" style = "text-align: center;"> 
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">
+            <mat-form-field style = "width: 60%;">
+              <textarea [disabled]="true" style = "overflow: hidden; height: 310px !important; text-align: left;"
+               matInput placeholder="Хориглох заалт">
+                -Хорт хавдарын 3-4 р үе
+                -Гоц халдварт өвчин
+                -Сарын тэмдэг ирсэн, жирэмсэн үед
+                -Шарх, ил шархтай үед мэс засалын
+                дараахь 45 хоногт
+                -Стент тавиулсан, зүрхний хиймэл 
+                  хавхлагатай 
+                -Протец, эмпилант, хадаас
+                -Хамар өндөрлөсөн 
+                -Зүрх тархины судасны 
+                  эмгэгтэй, даралт их хүмүүст
+                -Хэт ясны сийрэгжилтэй
+                -Шинэ гэмтэлтэй үед
+                -12 доош 65-сдээш насны 
+                -Астма сүрьеэ өвчтэй хүмүүст 
+                -Линз болон болор суулгасан 
+                -Хүнд өвчтэй хүнд
+              </textarea>
+            </mat-form-field>
+          </div>        
+        </div> 
+      </div>
+    </div>  
+    <div fxLayout="row" style = "margin-top: 10px;">
+      <div fxFlex="50%" style = "text-align: center;">
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="patient.therapyApprovedName" placeholder="Эмчилгээ хийлгэхийг зөвшөөрсөн/асран хамгаалагч/">
+            </mat-form-field>
+          </div>        
+        </div>
+      </div>
+      <div fxFlex="50%" style = "text-align: center;">
+        <div fxLayout="row">
+          <div fxFlex="100%" style = "text-align: center;">
+            <mat-form-field style = "width: 60%;">
+              <input matInput [(ngModel)]="patient.therapyDoctor" placeholder="Эмчлэгч эмч">
+            </mat-form-field>
+          </div>        
+        </div>
       </div>
     </div>  
   </div>
   <div class="modal-footer">
       <div fxLayout="row" style = "width: 100%">
           <div fxFlex="50%" style = "text-align: center;">    
-              <button class = "buttonModal" mat-button type="button" (click)="closeModal()">Хаах</button>
+            <button class = "buttonModal" mat-button type="button" (click)="closeModal()">Хаах</button>
           </div>    
-          <div fxFlex="50%" style = "text-align: center;">    
-              <button class = "buttonModal" mat-button type="button" (click)="savePatient()">Хадгалах</button>
+          <div fxFlex="50%" style = "text-align: center;">
+            <button class = "buttonModal" mat-button type="button" (click)="savePatient()">Хадгалах</button>
           </div>        
       </div>
   </div>

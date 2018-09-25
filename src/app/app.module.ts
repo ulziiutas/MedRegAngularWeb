@@ -30,6 +30,7 @@ import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
 import { ModalEditComponent } from './modal-edit/modal-edit.component';
 import { ModalAddComponent } from './modal-add/modal-add.component';
 import { ModalDetailComponent } from './modal-detail/modal-detail.component';
+import { MedicalTherapyDetailComponent } from './medical-therapy-detail/medical-therapy-detail.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },  
@@ -68,7 +69,8 @@ const appRoutes: Routes = [
     ModalDeleteComponent,
     ModalEditComponent,
     ModalAddComponent,
-    ModalDetailComponent
+    ModalDetailComponent,
+    MedicalTherapyDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +94,8 @@ const appRoutes: Routes = [
     ModalDeleteComponent,
     ModalEditComponent,
     ModalAddComponent,
-    ModalDetailComponent
+    ModalDetailComponent,
+    MedicalTherapyDetailComponent
   ],
   providers: [
   ],

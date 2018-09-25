@@ -90,17 +90,21 @@
                 </div>
               </div>
               <div fxFlex="0%"  style = "border-right: thin solid lightgrey;"></div>
-              <div (tap) = "openPatientsDetail(patient)" fxFlex="22%" style = "height: auto; text-align: left; border-right: thin solid lightgrey;">
-                <p style = "margin-left: 10px; margin-top: 10px; word-wrap: break-word;">{{patient.firstname}}</p>
+              <div class = "verticalCenter" (tap) = "openPatientsDetail(patient)" fxFlex="22%" 
+              style = "height: auto; text-align: left; border-right: thin solid lightgrey;">
+                <p style = "margin-left: 10px; word-wrap: break-word;">{{patient.firstname}}</p>
               </div>
-              <div (tap) = "openPatientsDetail(patient)" fxFlex="22%" style = "height: auto; text-align: left; border-right: thin solid lightgrey;"> 
-                <p style = "margin-left: 10px; margin-top: 10px; word-wrap: break-word;">{{patient.lastname}}</p>   
+              <div class = "verticalCenter" (tap) = "openPatientsDetail(patient)" fxFlex="22%" 
+              style = "height: auto; text-align: left; border-right: thin solid lightgrey;"> 
+                <p style = "margin-left: 10px; word-wrap: break-word;">{{patient.lastname}}</p>   
               </div>
-              <div (tap) = "openPatientsDetail(patient)" fxFlex="22%" style = "height: auto; text-align: left; border-right: thin solid lightgrey;">  
-                <p style = "margin-left: 10px; margin-top: 10px; word-wrap: break-word;">{{patient.patientname}}</p>  
+              <div class = "verticalCenter" (tap) = "openPatientsDetail(patient)" fxFlex="22%" 
+              style = "height: auto; text-align: left; border-right: thin solid lightgrey;">  
+                <p style = "margin-left: 10px; word-wrap: break-word;">{{patient.patientname}}</p>  
               </div>
-              <div (tap) = "openPatientsDetail(patient)" fxFlex="22%" style = "height: auto; text-align: left;">    
-                <p style = "margin-left: 10px; margin-top: 10px; word-wrap: break-word;">{{patient.email}}</p>
+              <div class = "verticalCenter" (tap) = "openPatientsDetail(patient)" fxFlex="22%" 
+              style = "height: auto; text-align: left;">    
+                <p style = "margin-left: 10px; word-wrap: break-word;">{{patient.email}}</p>
               </div>
           </div>
         </div>

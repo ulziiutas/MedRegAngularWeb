@@ -95,7 +95,6 @@ export class MedicalExamComponent implements OnInit {
     this.pageCount = Math.ceil(patients.length / 10);
     this.pageNumbers = [];
     this.patientsFilter = [];
-    console.log(this.pageCount);
     for(let i = 0; i < this.pageCount; i++) {
       this.pageNumbers.push(i + 1);
     }
@@ -111,7 +110,6 @@ export class MedicalExamComponent implements OnInit {
       }
       this.patientsFilter.push(tmp);
     }
-    console.log(this.pageNumbers);
   }
   choosePage(number : number) {
     this.chosenPage = number - 1;
@@ -249,6 +247,7 @@ export class MedicalExamComponent implements OnInit {
                 this.patientsFilter[i].patients[j].lastname = result.lastname;
                 this.patientsFilter[i].patients[j].gender = result.gender;
                 this.patientsFilter[i].patients[j].phone = result.phone;
+                this.patientsFilter[i].patients[j].therapyShownOnPicture = result.therapyShownOnPicture;
               }
             }
           }
@@ -258,6 +257,7 @@ export class MedicalExamComponent implements OnInit {
               this.patients[i].lastname = result.lastname;
               this.patients[i].gender = result.gender;
               this.patients[i].phone = result.phone;
+              this.patients[i].therapyShownOnPicture = result.therapyShownOnPicture;
             }            
           }
         }

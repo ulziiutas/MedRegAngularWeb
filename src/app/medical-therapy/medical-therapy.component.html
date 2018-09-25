@@ -1,3 +1,129 @@
-<p>
-  medical-therapy works!
-</p>
+<div fxFlex="100%" style = "overflow: auto; padding: 10px; max-width: 100% !important; width: 100% !important;" class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0" fxLayoutAlign="center">
+  <div fxFlex="100%" style = "height: -webkit-fill-available;">     
+    <div fxLayout="row" 
+    style = "width: 100%; height: 40px; 
+    border-top: thin solid lightgrey;  
+    border-left: thin solid lightgrey; 
+    border-right: thin solid lightgrey;">
+      <div fxFlex="12%" style = "height: 100%; border-right: thin solid lightgrey;">    
+        <div fxLayout="row" style = "width: 100%; height: 100%; ">
+          <div fxFlex="100%" style = "height: 100%; text-align: center; color: #1e6bb8; font-weight: bold;">            
+            <button (tap) = "openModalAdd()" class = "fontHevletica" style = "font-weight: bold;
+            height: -webkit-fill-available;
+            width: -webkit-fill-available;" mat-button>Мөр нэмэх</button>
+          </div>  
+        </div>
+      </div>
+      <div fxFlex="22%" 
+      style = "height: auto; text-align: center; color: #1e6bb8; font-weight: bold; border-right: thin solid lightgrey;">
+        <p style = "margin-top: 10px;">Нэр</p>
+      </div>
+      <div fxFlex="22%" 
+      style = "height: auto; text-align: center; color: #1e6bb8; font-weight: bold; border-right: thin solid lightgrey;"> 
+        <p style = "margin-top: 10px;">Овог</p>   
+      </div>
+      <div fxFlex="22%" 
+      style = "height: auto; text-align: center; color: #1e6bb8; font-weight: bold; border-right: thin solid lightgrey;">  
+        <p style = "margin-top: 10px;">Регистерийн дугаар</p>  
+      </div>
+      <div fxFlex="22%" 
+      style = "height: auto; text-align: center; color: #1e6bb8; font-weight: bold; border-right: thin solid lightgrey;">    
+        <p style = "margin-top: 10px;">ЭМ дугаар</p>
+      </div>
+    </div>
+    <div fxLayout="row" 
+    style = "width: 100%; height: 40px; 
+    border-top: thin solid lightgrey;  
+    border-left: thin solid lightgrey; 
+    border-right: thin solid lightgrey;            
+    justify-content: center;
+    display: flex;
+    flex-direction: column;">
+      <div fxFlex="12%" style = "height: 100%; border-right: thin solid lightgrey;">    
+        <div fxLayout="row" style = "width: 100%; height: 100%; ">
+          <div fxFlex="100%" style = "height: 100%; text-align: center; color: #1e6bb8; font-weight: bold;"> 
+            <p style = "margin-top: 10px; font-weight: bold;">Хайх</p>
+          </div>  
+        </div>
+      </div>
+      <div fxFlex="22%" 
+      style = "height: auto; text-align: center; color: #1e6bb8; font-weight: bold; border-right: thin solid lightgrey;">
+        <input (ngModelChange)="firstnameFilterChange($event)" 
+        class = "filterInput" matInput [(ngModel)]="firstnameFilter" placeholder="">
+      </div>
+      <div fxFlex="22%" 
+      style = "height: auto; text-align: center; color: #1e6bb8; font-weight: bold; border-right: thin solid lightgrey;"> 
+        <input (ngModelChange)="lastnameFilterChange($event)" 
+        class = "filterInput" matInput [(ngModel)]="lastnameFilter" placeholder="">
+      </div>
+      <div fxFlex="22%" 
+      style = "height: auto; text-align: center; color: #1e6bb8; font-weight: bold; border-right: thin solid lightgrey;">  
+        <input (ngModelChange)="patientnameFilterChange($event)" 
+        class = "filterInput" matInput [(ngModel)]="patientnameFilter" placeholder="">
+      </div>
+      <div fxFlex="22%" 
+      style = "height: auto; text-align: center; color: #1e6bb8; font-weight: bold; border-right: thin solid lightgrey;">    
+        <input (ngModelChange)="emailFilterChange($event)"
+          class = "filterInput" matInput [(ngModel)]="emailFilter" placeholder="">
+      </div>
+    </div>
+    <div *ngFor = "let pagecount of patientsFilter;">
+      <div *ngIf = "chosenPage == pagecount.page">
+        <div *ngFor = "let patient of pagecount.patients; let i = index;">
+          <div class = "hoverBackground" [ngStyle]="pagecount.patients.length-1 === i ? borderBottom : ''" fxLayout="row" style = "width: 100%; height: 100%; 
+          border-top: thin solid lightgrey;  
+          border-left: thin solid lightgrey; 
+          border-right: thin solid lightgrey;">
+              <div fxFlex="12%" style = "height: 100%; margin: auto;">    
+                <div fxLayout="row" style = "width: 100%; height: 100%;">
+                  <div fxFlex="50%" style = "height: 100%; text-align: center; color: #1e6bb8;"> 
+                    <button class = "fontHevletica" style = "font-weight: bold;
+                    height: 100%;
+                    width: 100%;
+                    padding: 0;
+                    min-width: 0;" mat-button (tap) = "openModalEdit(patient)">Засах</button>
+                  </div>   
+                  <div fxFlex="50%" style = "height: 100%; text-align: left; color: #1e6bb8;">
+                    <button class = "fontHevletica" style = "font-weight: bold;
+                    height: 100%;
+                    width: 100%;
+                    padding: 0;
+                    min-width: 0;" mat-button (tap) = "openModalDelete(patient)">Устгах</button>
+                  </div>   
+                </div>
+              </div>
+              <div fxFlex="0%"  style = "border-right: thin solid lightgrey;"></div>
+              <div class = "verticalCenter" (tap) = "openPatientsDetail(patient)" fxFlex="22%" 
+              style = "height: auto; text-align: left; border-right: thin solid lightgrey;">
+                <p style = "margin-left: 10px; word-wrap: break-word;">{{patient.firstname}}</p>
+              </div>
+              <div class = "verticalCenter" (tap) = "openPatientsDetail(patient)" fxFlex="22%" 
+              style = "height: auto; text-align: left; border-right: thin solid lightgrey;"> 
+                <p style = "margin-left: 10px; word-wrap: break-word;">{{patient.lastname}}</p>   
+              </div>
+              <div class = "verticalCenter" (tap) = "openPatientsDetail(patient)" fxFlex="22%" 
+              style = "height: auto; text-align: left; border-right: thin solid lightgrey;">  
+                <p style = "margin-left: 10px; word-wrap: break-word;">{{patient.patientname}}</p>  
+              </div>
+              <div class = "verticalCenter" (tap) = "openPatientsDetail(patient)" fxFlex="22%" 
+              style = "height: auto; text-align: left;">    
+                <p style = "margin-left: 10px; word-wrap: break-word;">{{patient.email}}</p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div style = "text-align: center;" *ngFor = "let number of pageNumbers">
+        <div *ngIf = "number-1 == chosenPage"> 
+          <button style = "font-size: 18px; padding: 0; width: 30px; min-width: 0; color: #1e6bb8; font-weight: bold;" mat-button type="button" 
+          (click)="choosePage(number)">[{{number}}]</button>
+        </div>
+        <div *ngIf = "number-1 != chosenPage"> 
+          <button style = "padding: 0; width: 30px; min-width: 0;"  mat-button type="button" 
+          (click)="choosePage(number)">[{{number}}]</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
