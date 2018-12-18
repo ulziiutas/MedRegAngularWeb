@@ -53,3 +53,8 @@ app {
     display: flex;
     flex-direction: column;
 }
+button:focus {
+    outline: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important; 
+}
